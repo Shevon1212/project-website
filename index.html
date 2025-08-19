@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Buttons</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .btn {
+            position: relative;
+            width: 220px;
+            height: 60px;
+            border: none;
+            outline: none;
+            color: white;
+            background: #111;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.4s;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:nth-child(1) {
+            background: #f72585;
+        }
+        .btn:nth-child(2) {
+            background: #7209b7;
+        }
+        .btn:nth-child(3) {
+            background: #3a86ff;
+        }
+        .btn:nth-child(4) {
+            background: #4cc9f0;
+        }
+        .btn:nth-child(5) {
+            background: #2ec4b6;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .bubbles {
+            position: absolute;
+            bottom: -100px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: bubble 15s linear infinite;
+        }
+
+        @keyframes bubble {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-1000px);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 2.5rem;
+        }
+
+        /* Remove default link styling inside buttons */
+        .btn a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            height: 100%;
+            line-height: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <h1>Welcome to our creative space!</h1>
+        <!-- PDF Button (Replace with your PDF link) -->
+        <button class="btn">
+            <a href="Proposal- 41 new.pdf" target="_blank">Proposal Document</a>
+        </button>
+
+
+        
+        <!-- Additional Buttons (Optional) -->
+        <button class="btn">
+            <a href="AUTOMATED HOME NEW.pdf" target="_blank">Project Presentation</a>
+        </button>
+        
+        
+        <!-- Video Button (Replace with your video link) -->
+        <button class="btn">
+            <a href="https://youtu.be/DPqiIzK97K0?si=xQbhdRAjmEJl13fZ" target="_blank">Tutorial Video</a>
+        </button>
+        
+        <!-- Additional Buttons (Optional) -->
+        <button class="btn">Create</button>
+        
+        <button class="btn">Connect</button>
+        <button class="btn">Start Now</button>
+
+        
+        <!-- Additional Buttons (Optional) -->
+        <button class="btn">Create</button>
+    </div>
+
+    <script>
+        // Create animated bubbles in background
+        function createBubbles() {
+            const bubbles = document.createElement('span');
+            bubbles.classList.add('bubbles');
+            
+            const size = Math.random() * 50 + 10;
+            bubbles.style.width = size + 'px';
+            bubbles.style.height = size + 'px';
+            bubbles.style.left = Math.random() * window.innerWidth + 'px';
+            
+            document.body.appendChild(bubbles);
+            
+            setTimeout(() => {
+                bubbles.remove();
+            }, 15000);
+        }
+        
+        setInterval(createBubbles, 300);
+    </script>
+</body>
+</html>
